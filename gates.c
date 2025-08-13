@@ -12,7 +12,7 @@ float train[][3] = {
 
 #define train_count (sizeof(train)/sizeof(train[0]))
 float eps = 1e-3;
-float learning_rate = 1e-1;  // Увеличена скорость обучения
+float learning_rate = 1e-1; 
 
 float rand_float(void) {
     return (float)rand() / (float)RAND_MAX;
@@ -23,7 +23,7 @@ float loss(float w1, float w2, float b) {
     for (size_t i = 0; i < train_count; i++) {
         float x1 = train[i][0];
         float x2 = train[i][1];
-        float y = x1 * w1 + x2 * w2 + b;  // Добавлен свободный член (bias)
+        float y = x1 * w1 + x2 * w2 + b;
         float d = y - train[i][2];
         result += d * d;
     }
@@ -34,7 +34,7 @@ int main(void) {
     srand(time(0));
     float w1 = rand_float();
     float w2 = rand_float();
-    float b = rand_float();  // Добавлен свободный член
+    float b = rand_float(); 
 
     for (size_t i = 0; i < 10000; i++) {
         float l = loss(w1, w2, b);
